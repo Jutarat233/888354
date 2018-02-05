@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body style="font-size:26px;">
+<center>
+<h2>Example 2 Java Script</h2>
+<h2>Search String Non Sensitive Case</h2> <hr>
+Text Input : <textarea name="input" id="input" rows="8" cols="80"></textarea>
+<br>
+  Sensitive Case : <input type="radio" id="ans1" name="ans" value="1" checked> Yes <input type="radio" id="ans2" name="ans" value="0">No
+<br><br>
+Search : <input type="text" id="search" name="search">
+<br><br>
+<button onclick="myFunction()">Try it</button>
+<br><br>
+Result for Search :<p id="demo"></p><br>
+</center>
+
+<script>
+function myFunction() {
+  if (document.getElementById('ans1').checked) {
+
+    var str = document.getElementById("input").value;
+    var sch = document.getElementById("search").value;
+    var re = new RegExp(sch,"g");
+    var res = str.match(re);
+    document.getElementById("demo").innerHTML = res.length;
+}
+else if (document.getElementById('ans2').checked) {
+    var str = document.getElementById("input").value;
+    var sch = document.getElementById("search").value;
+    var re = new RegExp(sch,"gi");
+    var res = str.match(re);
+    document.getElementById("demo").innerHTML = res.length;
+    console.log(res);
+}
+}
+</script>
+
+</body>
+</html>
