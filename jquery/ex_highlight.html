@@ -1,0 +1,77 @@
+<html><head>
+  <style media="screen">
+    div,
+    h1 {
+      font-size: 26px;
+      text-align: center;
+    }
+
+    legend {
+      display: block;
+      padding-left: 2px;
+      padding-right: 2px;
+      border: none;
+      font-size: 22px;
+    }
+
+    #article {
+      font-size: 18px;
+    }
+
+    #search_para {
+      color: grey;
+    }
+
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Ex - Highlight Text</h1>
+  <hr>
+  <div>
+    search : <input type="text" id="search_text">
+  </div>
+  <div>
+    <input input="" type="button" value="search" id="search">
+  </div>
+  <div>
+    found :
+    <label id="rs"></label>
+  </div>
+  <fieldset>
+    <legend>The Article : Continuous Digital Health</legend>
+    <p id="search_para">The way we deal with our health is undergoing a major transformation, not only because mobile Internet technology has made it possible to have continuous access to personal health information, but also because breaking the trend of ever-growing healthcare costs is increasingly necessary. Estimates indicate that more than 70 percent of the world population will have a smartphone by 2017. Connectivity, interoperability, sensing, and instant feedback through smartphones all provide new opportunities for gaining insights into our health behavior. Such insights are improving, and understanding what motivates people to make healthy changes throughout their lifetimes is becoming more important. Internet technology not only lets us continuously monitor an individual's physiological and psychological state, but also allows for building up a lifelong record of physical, mental, and social health.</p>
+  </fieldset>
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+$(function() {
+  $("#search").click(function() {
+    var searchpara = $('p').text();
+    highlight_word(searchpara);
+    });
+});
+
+  function highlight_word(searchpara) {
+    var text = $("#search_text").val();
+    if (text) {
+      var pattern = new RegExp("(" + text + ")", "gi");
+      var new_text = searchpara.replace(pattern, "<span class='highlight'>" + text + "</span>");
+      $('#search_para').html(new_text);
+      $('#rs').html($("span").length);
+    }
+  }
+</script>
+
+
+</body></html>
